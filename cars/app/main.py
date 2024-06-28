@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Response, HTTPException
+from fastapi.responses import PlainTextResponse
 
 from .cars import create_cars
 
@@ -26,5 +27,5 @@ def get_car(id: int):
     for car in cars:
         if car["id"] == id:
             return car
-    raise HTTPException(status_code=404, detail="Not found")
+    return PlainTextResponse("Not found", status_code=404)
 # (конец решения)
