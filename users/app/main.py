@@ -15,7 +15,12 @@ def index(request: Request):
 
 
 # (сюда писать решение)
-
+@app.get("/users")
+def get_users(request: Request):
+    return templates.TemplateResponse("users/index.html", {
+        "request": request,
+        "users": users
+    })
 
 
 # (конец решения)
